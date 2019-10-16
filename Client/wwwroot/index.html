@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table id="employee">
+        <tr>
+            <th>Stuff Number</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+        </tr>
+    </table>
+
+ <script>
+$(document).ready(function(){
+     var url = "https://localhost:44382/api/employees";
+ $.getJSON(url,function(data){
+   var employee_data = '';
+   $.each(data,function(key,value){
+     employee_data += '<tr>';
+	 employee_data += '<td>'+value.stuffno+'</td>';
+	 employee_data += '<td>'+value.name+'</td>';
+	 employee_data += '<td>'+value.email+'</td>';
+	 employee_data += '<td>'+value.phoneno+'</td>';
+	 employee_data += '</tr>';
+   });
+   $('#employee').append(employee_data);
+ });
+});
+
+</script>
+
+
+</body>
+</html>
