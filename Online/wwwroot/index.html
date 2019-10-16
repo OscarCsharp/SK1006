@@ -1,0 +1,393 @@
+﻿ <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>mySkol Application</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Open+Sans:300,400,600,700"] },
+            custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['assets/css/fonts.css'] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/azzara.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+   
+    <script src="lib/jquery/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="main-header" data-background-color="green">
+            <br><center><p style="color:white ; font-weight:bold ; font-size:25px">mySkol - Online Application For Admission</p></center>
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="main-panel">
+                <div class="content">
+                    <div class="page-inner">
+                        <h4 class="page-title">Applicant Details</h4>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-with-nav">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="">First and Last Name</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="name" placeholder="First Name" required>
+                                                <input type="text" class="form-control" id="surname" placeholder="Surname" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide your name and surname
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ID Number</label>
+                                            <input type="number" class="form-control" id="idNumber" placeholder="ID Number" required>
+                                            <div class="invalid-feedback">
+                                                Please enter ID number
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-group">
+                                                    <label for="formGroupExampleInput">Gender</label>
+                                                    <select class="form-control" id="gender" required>
+                                                        <option value="">Select</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Select Gender
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-group">
+                                                    <label for="formGroupExampleInput">Race</label>
+                                                    <select class="form-control" id="race" required>
+                                                        <option value="">Select</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Specify ethnicity
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Physical Address</label>
+                                            <input type="text" class="form-control" id="homeAddress" placeholder="Home Address" required>
+                                            <div class="invalid-feedback">
+                                                Please Home Address
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="validationCustom03">City</label>
+                                                    <input type="text" class="form-control" id="city" placeholder="City" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter city.
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3 mb-3">
+                                                    <label for="validationCustom04">Province</label>
+                                                    <select class="form-control" id="state" required>
+                                                        <option value="">Select</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Please enter province.
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3 mb-3">
+                                                    <label for="validationCustom05">Zip</label>
+                                                    <input type="text" class="form-control" id="zipCode" placeholder="Zip" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter zip code.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Cell Number</label>
+                                            <input type="number" class="form-control" id="cellNumber" placeholder="Phone Number" required>
+                                            <div class="invalid-feedback">
+                                                Please enter phone number
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                            <div class="invalid-feedback">
+                                                Please enter valid email address
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Tell About Yourself</label>
+                                            <textarea class="form-control" id="describe" placeholder="Describe yourself" rows="3" required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please describe yourself
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="container">
+                                                Any Disablity ? if So Specify
+                                            </label>
+                                            <input type="text" class="form-control" id="disability" placeholder="Specify Disablity" value="None">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-group">
+                                                    <label for="formGroupExampleInput">Which Grade are you applying for ? </label>
+                                                    <select class="form-control" id="grade" required>
+                                                        <option value="">Select</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Specify Grade please
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3 mb-3">
+                                                    <label for="validationCustom05">Enroll Year</label>
+                                                    <input type="number" class="form-control" id="year" placeholder="YYYY" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter enroll year.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="exampleFormControlTextarea1"><b>Modules offered at the School :</b></label>
+                                <ul class="list-group">
+                                    <li class="list-group-item active" style="background-color:green">Languages : </li>
+                                    <li class="list-group-item">Xitsonga(Home Language)</li>
+                                    <li class="list-group-item">English(First Additional Language)</li>
+                                </ul>
+
+                                <ul class="list-group">
+                                    <li class="list-group-item active" style="background-color:green">Grade 8 & 9 Subjects : </li>
+                                    <li class="list-group-item">
+                                        Economic Management Science,Natural Science,Social Scienece,
+                                        Arts and Culture , Life Orientation,Mathematics
+                                    </li>
+                                </ul>
+
+                                <ul class="list-group">
+                                    <li class="list-group-item active" style="background-color:green">Grade 10 , 11 & 12 Subjects : </li>
+                                    <li class="list-group-item" style="color:green"><b>Class of Science</b></li>
+                                    <li class="list-group-item">
+                                        Mathematics,Physical Sciences,Life Sciences or Geography,
+                                        Computer Applications Technology or Business Studies
+                                    </li>
+
+                                    <li class="list-group-item" style="color:green"><b>Class of Business</b></li>
+                                    <li class="list-group-item">Accounting,Economics,Business Studies,Mathematics or Maths Litracy</li>
+
+                                    <li class="list-group-item" style="color:green"><b>General Stream</b></li>
+                                    <li class="list-group-item">History,Agricultural Sciences or Life Sciences,Geography ,Maths Litracy</li>
+                                </ul>
+
+                                <h6 class="page-title">Attachements Here</h6>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Upload your ID </label>
+                                    <input type="file" name="uploadId" class="form-control-file" id="idDoc"/>
+                                    <div class="invalid-feedback">
+                                        Please upload your ID
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Upload your Proof of Residence </label>
+                                    <input type="file" class="form-control-file" id="resDoc" >
+                                    <div class="invalid-feedback">
+                                        Please upload proof of residence
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Upload your latest Results </label>
+                                    <input type="file" class="form-control-file" id="results" >
+                                    <div class="invalid-feedback">
+                                        Please upload your latest results
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="text-right mt-3 mb-3">
+                        <center> 
+                            <button id="btnApply"  class="btn btn-success"  >Apply</button>
+                            <input type="button"  class="btn btn-danger" value="Close" href="httt"/>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="lib/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/js/popper.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/holder.min.js"></script>
+
+
+    <script>
+       
+        $(document).ready(function () {
+             //Load the droplists dynamically
+             //Genders
+            var url = "https://localhost:44382/api/genders";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#gender').append('<option value="' + value.genderName + '">' + value.genderName + '</option>');
+                });
+            });
+
+            //Races
+            var url = "https://localhost:44382/api/races";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#race').append('<option value="' + value.raceName + '">' + value.raceName + '</option>');
+                });
+            });
+
+            //Provinces
+            var url = "https://localhost:44382/api/states";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#state').append('<option value="' + value.stateName + '">' + value.stateName + '</option>');
+                });
+            });
+
+            //Grades
+            var url = "https://localhost:44382/api/grades";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#grade').append('<option value="' + value.gradeName + '">' + value.gradeName + '</option>');
+                });
+            });
+
+        });
+
+       
+
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        else {
+
+                            $(function () {
+                                var Apply = function () {
+                                    var NewApplicant = {
+                                        Name: document.getElementById("name").value,
+                                        Surname: document.getElementById("surname").value,
+                                        IdNumber: document.getElementById("idNumber").value,
+                                        Gender: document.getElementById("gender").value,
+                                        Race: document.getElementById("race").value,
+                                        HomeAddress: document.getElementById("homeAddress").value,
+                                        City: document.getElementById("city").value,
+                                        Province: document.getElementById("state").value,
+                                        Zip: document.getElementById("zipCode").value,
+                                        CellNo: document.getElementById("cellNumber").value,
+                                        Email: document.getElementById("email").value,
+                                        Description: document.getElementById("describe").value,
+                                        Disability: document.getElementById("disability").value,
+                                        AppliedGrade: document.getElementById("grade").value,
+                                        EnrollYear: document.getElementById("year").value,
+                                        Status:"In Process",
+                                    };
+
+
+                                    $.ajax({
+                                        url: "https://localhost:44382/api/applicants",
+                                        type: "POST",
+                                        contentType: "application/json;charset=utf-8",
+                                        data: JSON.stringify(NewApplicant),
+                                        dataType: "json",
+                                        success: function (response) {
+                                            alert(response);
+                                        },
+                                        error: function (x, e) {
+                                            alert('Failed');
+                                            alert(x.responseText);
+                                            alert(x.status);
+                                        }
+                                    });
+                                };
+
+                               Apply();
+
+                            });
+
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+
+        })();
+    </script>
+    
+</body>
+</html>
