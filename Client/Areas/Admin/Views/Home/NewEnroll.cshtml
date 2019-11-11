@@ -1,11 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = "Learners";
+    ViewData["Title"] = "NewEnroll";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 
 <div class="page-inner">
+
+
 
     <div class="row">
         <div class="col-sm-6 col-md-3">
@@ -72,27 +74,6 @@
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-icon">
-                            <div style="background-color:green" class="icon-big text-center icon-secondary bubble-shadow-small">
-                                <i class="fas fa-award"></i>
-                            </div>
-                        </div>
-                        <a asp-controller="Home" asp-action="NewEnroll" asp-area="Admin" style="color:white">
-                            <div class="col col-stats ml-3 ml-sm-0">
-                                <div class="numbers">
-                                    <h4 class="card-title">Enroll Student</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 
@@ -104,13 +85,10 @@
         <thead>
             <tr style="background-color:green ">
                 <th class="th-sm" style="color:white">
-                    Student No
+                    Reference Number
                 </th>
                 <th class="th-sm" style="color:white">
                     Full Name
-                </th>
-                <th class="th-sm" style="color:white">
-                    ID Number
                 </th>
                 <th class="th-sm" style="color:white">
                     Gender
@@ -119,17 +97,24 @@
                     Email Address
                 </th>
                 <th class="th-sm" style="color:white">
-                    Enrolled Year
+                    Applied Grade
                 </th>
                 <th class="th-sm" style="color:white">
-                    Current Grade
+                    Enrolling Year
                 </th>
                 <th class="th-sm" style="color:white">
-                    More Details
+                    Status
+                </th>
+                <th class="th-sm" style="color:white">
+                    View
                 </th>
             </tr>
         </thead>
-        <tbody id="ltable">
+        <tbody id="apptable">
         </tbody>
     </table>
 </div>
+
+
+
+

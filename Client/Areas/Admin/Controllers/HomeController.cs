@@ -28,17 +28,24 @@ namespace Client.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult Modules()
+
+
+        public IActionResult LibraryHall()
         {
             return View();
         }
 
-        public IActionResult Approved()
+        public IActionResult Statistics()
         {
             return View();
         }
 
         public IActionResult Applicants()
+        {
+            return View();
+        }
+
+        public IActionResult NewEnroll()
         {
             return View();
         }

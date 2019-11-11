@@ -39,6 +39,8 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="~/assets/css/demo.css">
 
+    <script src="lib/js/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -119,9 +121,9 @@
                         </li>
                         <br>
                         <div class="nav-item">
-                            <a asp-area="Admin" asp-controller="Home" asp-action="Applicants">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="LibraryHall">
                                 <i style="color:green" class="fas fa-layer-group"></i>
-                                <p>Applicants</p>
+                                <p>Library Hall</p>
 
                             </a>
 
@@ -217,5 +219,99 @@
 </body>
 </html>
 
+
+<script>
+    function GetAllEmp() {
+        $.getJSON("http://172.17.83.129:8085/api/employees", function (data) {
+            $('#bindemp').empty();
+            $.each(data, function (key, val) {
+
+                var row = "<tr><td>" + val.stuffNo + "</td><td>" + val.title + "</td><td>" + val.name +
+                    "</td><td>" + val.email + "</td><td>" + val.phone + "</td><td>" + val.position + "</td><td>" +
+                    "<a class='btn btn-danger btn-rounded btn-sm my-0'  role='button' ><i  class='fas fa-angle-double-right'>"
+                    + "</a>" +
+                    + "</td></tr>";
+
+                $(row).appendTo($('#bindemp'));
+
+            });
+        });
+    }
+
+    function  GetAllLearners(){
+        $.getJSON("http://172.17.83.129:8085/api/students", function (data) {
+            $('#ltable').empty();
+            $.each(data, function (key, val) {
+
+                var row = "<tr><td>" + val.studentNo + "</td><td>" + val.name +" "+val.surname+ "</td><td>" + val.idNumber +
+                    "</td><td>" + val.gender + "</td><td>" + val.email + "</td><td>" + val.enrolledYear +  "</td><td>" + val.currentGrade + "</td><td>" +
+                    "<a class='btn btn-danger btn-rounded btn-sm my-0'  role='button' ><i  class='fas fa-angle-double-right'>"
+                    + "</a>" +
+                    + "</td></tr>";
+
+                $(row).appendTo($('#ltable'));
+
+            });
+        });
+    }
+
+     function GetAllApplicants() {
+        $.getJSON("http://172.17.83.129:8085/api/applicants", function (data) {
+            $('#apptable').empty();
+            $.each(data, function (key, val) {
+
+                var row = "<tr><td>" + val.referenceNo + "</td><td>" + val.name+" "+val.surname + "</td><td>" + val.gender +
+                    "</td><td>" + val.email + "</td><td>" + val.appliedGrade + "</td><td>" + val.enrollYear + "</td><td>" + val.status + "</td><td>" +
+                    "<a class='btn btn-danger btn-rounded btn-sm my-0'  role='button' ><i  class='fas fa-angle-double-right'>"
+                    + "</a>" +
+                    + "</td></tr>";
+
+                $(row).appendTo($('#apptable'));
+
+            });
+        });
+    }
+
+    function Staff() {
+      
+            //Load the droplists dynamically
+            //Title
+            var url = "http://172.17.83.129:8085/api/titles";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#addstafftitle').append('<option value="' + value.name + '">' + value.name + '</option>');
+                });
+            });
+
+         //Position
+            var url = "http://172.17.83.129:8085/api/positions";
+            $.getJSON(url, function (data) {
+                $.each(data, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#addstaffposition').append('<option value="' + value.name + '">' + value.name + '</option>');
+                });
+            });
+
+    }
+   
+
+    function addStuff() {
+       
+        var n = document.getElementById("addstaffname").value;
+        var check = valid;
+        if (n === " ") { check = "empty"; }
+        if(check === )
+         alert("Please provide all details");
+    }
+
+    $(document).ready(function () {
+        Staff();
+        GetAllEmp();
+        GetAllLearners()
+        GetAllApplicants()
+
+    });
+</script>
 
 

@@ -31,7 +31,7 @@ namespace WebAPI
             options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //Enable the API to access using Cors
-            services.AddCors(a => a.AddPolicy("ApplicantPolicy", builder =>
+            services.AddCors(a => a.AddPolicy("Policy", builder =>
             {
                 builder.AllowAnyOrigin()
                 .AllowAnyMethod()

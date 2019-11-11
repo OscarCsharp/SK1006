@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/azzara.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-   
-    <script src="lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="lib/js/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -180,7 +180,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-3 mb-3">
+                                                <div class="col-md-6 mb-3">
                                                     <label for="validationCustom05">Enroll Year</label>
                                                     <input type="number" class="form-control" id="year" placeholder="YYYY" required>
                                                     <div class="invalid-feedback">
@@ -280,7 +280,7 @@
         $(document).ready(function () {
              //Load the droplists dynamically
              //Genders
-            var url = "https://localhost:44382/api/genders";
+            var url = "https://localhost:44314/api/genders";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.
@@ -289,7 +289,7 @@
             });
 
             //Races
-            var url = "https://localhost:44382/api/races";
+            var url = "https://localhost:44314/api/races";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.
@@ -298,7 +298,7 @@
             });
 
             //Provinces
-            var url = "https://localhost:44382/api/states";
+            var url = "https://localhost:44314/api/states";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.
@@ -307,7 +307,7 @@
             });
 
             //Grades
-            var url = "https://localhost:44382/api/grades";
+            var url = "https://localhost:44314/api/grades";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.

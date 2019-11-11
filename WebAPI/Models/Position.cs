@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    public class Employee
+    public class Position
     {
         [Key]
-        public int StuffNo { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Position { get; set; }
     }
 }

@@ -1,0 +1,91 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Article  by Vithal Wadje</title>
+    <script src="lib/js/jquery.min.js"></script>
+    <script>
+        function GetAllEmp() {
+            $.getJSON("https://localhost:44314/api/employees", function (data) {
+                $('#bindemp').empty();
+                $.each(data, function (key, val) {
+
+                    var row = "<tr><td>" + val.stuffNo + "</td> <td></td>  <td>" + val.name + "  " + val.email + "</td> <td></td>  <td>"+ "</tr>";
+
+                    $(row).appendTo($('#bindemp'));
+
+                });
+            });
+        }
+
+
+
+        $(document).ready(function () {
+            GetAllEmp();
+
+        });
+    </script>
+</head>
+<body style="background-color:navy;color:White">
+    <form id="form1" runat="server">
+        <br /><br />
+        <table>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtFirstName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtLastName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Company
+                </td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtCompany" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <asp:Button Text="Save" runat="server" ID="btnSave" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table>
+
+            <thead>
+                <tr>
+                    <td>
+                        Id
+                    </td>
+                    <td></td>
+
+                    <td>
+                        Name
+                    </td>
+                    <td></td>
+                    <td>
+                        Company
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody id="bindemp">
+            </tbody>
+        </table>
+
+    </form>
+</body>
+</html> 
