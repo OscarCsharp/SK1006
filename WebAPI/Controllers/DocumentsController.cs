@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +13,6 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("Policy")]
     public class DocumentsController : ControllerBase
     {
         private readonly DataContext _context;
@@ -23,8 +22,10 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Documents
-        [HttpGet]
+		
+
+		// GET: api/Documents
+		[HttpGet]
         public async Task<ActionResult<IEnumerable<Document>>> GetDocuments()
         {
             return await _context.Documents.ToListAsync();
@@ -36,10 +37,10 @@ namespace WebAPI.Controllers
         {
             var document = await _context.Documents.FindAsync(id);
 
-            if (document == null)
-            {
-                return NotFound();
-            }
+				if (document == null)
+				{
+					return NotFound();
+				}
 
             return document;
         }
@@ -48,7 +49,7 @@ namespace WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDocument(int id, Document document)
         {
-            if (id != document.Applicant)
+            if (id != document.FileId)
             {
                 return BadRequest();
             }
@@ -76,12 +77,32 @@ namespace WebAPI.Controllers
 
         // POST: api/Documents
         [HttpPost]
-        public async Task<ActionResult<Document>> PostDocument(Document document)
+        public async Task<ActionResult<Document>> PostDocument(string fName, int AppId,IFormFile Attachment)
         {
-            _context.Documents.Add(document);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDocument", new { id = document.Applicant }, document);
+			using (var memoryStream = new MemoryStream())
+			{
+				await Attachment.CopyToAsync(memoryStream);
+
+				// Upload the file if less than 2 MB
+				if (memoryStream.Length < 2097152)
+				{
+					var File = new Document()
+					{
+						FileName = fName,
+						ApplicantId = AppId,						
+						File = memoryStream.ToArray()
+					};
+
+					_context.Documents.Add(File);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					ModelState.AddModelError("File", "The file is too large.");
+				}
+			}
+			return Ok();	
         }
 
         // DELETE: api/Documents/5
@@ -102,7 +123,7 @@ namespace WebAPI.Controllers
 
         private bool DocumentExists(int id)
         {
-            return _context.Documents.Any(e => e.Applicant == id);
+            return _context.Documents.Any(e => e.ApplicantId == id);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,7 +36,8 @@ namespace WebAPI
             {
                 builder.AllowAnyOrigin()
                 .AllowAnyMethod()
-                .AllowAnyHeader();
+                .AllowAnyHeader()
+                .AllowCredentials();
             }));
         }
 
@@ -54,6 +56,13 @@ namespace WebAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCors("Policy");
+
+			//for static files as well as uploading to folder configuration
+			app.Run(async (context) =>
+			{
+				await context.Response.WriteAsync("Could Not Find Anything");
+			});
         }
     }
 }

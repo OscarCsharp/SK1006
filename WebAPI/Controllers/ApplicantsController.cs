@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   [EnableCors("Policy")]
+    [EnableCors("Policy")]
     
     public class ApplicantsController : ControllerBase
     {
@@ -80,13 +80,14 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Applicant>> PostApplicant(Applicant applicant)
         {
-            _context.Applicants.Add(applicant);
-            await _context.SaveChangesAsync();
+			
 
-            //Notify
-            ApplyNotify(applicant.Email);
+			_context.Applicants.Add(applicant);
+			await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetApplicant", new { id = applicant.ReferenceNo }, applicant);
+			//ApplyNotify(applicant.Email);
+
+			return CreatedAtAction("GetApplicant", new { id = applicant.ReferenceNo }, applicant);
         }
 
         // DELETE: api/Applicants/5
@@ -107,7 +108,7 @@ namespace WebAPI.Controllers
 
         private bool ApplicantExists(int id)
         {
-            return _context.Applicants.Any(e => e.ReferenceNo == id);
+            return _context.Applicants.Any(e => e.IdNumber == id);
         }
 
         //Custom Functions

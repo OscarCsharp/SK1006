@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="assets/img/icon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/assets/img/icon.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="~/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -22,6 +22,7 @@
 
     <environment include="Development">
         <link href="~/assets/css/fonts.css" rel="stylesheet" />
+        <script src="~/lib/js/jquery.min.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -30,6 +31,8 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+        <script src="lib/js/jquery.min.js"></script>
+        <script src="~/lib/js/jquery.min.js"></script>
     </environment>
 
     <!-- CSS Files -->
@@ -39,7 +42,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="~/assets/css/demo.css">
 
-    <script src="lib/js/jquery.min.js"></script>
+    <script src="~/lib/js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -203,7 +206,7 @@
 
     <!-- jQuery Vector Maps -->
     <script src="~/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-    <script src="assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="~/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
 
     <!-- Google Maps Plugin -->
     <script src="~/assets/js/plugin/gmaps/gmaps.js"></script>
@@ -222,7 +225,7 @@
 
 <script>
     function GetAllEmp() {
-        $.getJSON("http://172.17.83.129:8085/api/employees", function (data) {
+        $.getJSON("http://www.skolapi.co.za/api/employees", function (data) {
             $('#bindemp').empty();
             $.each(data, function (key, val) {
 
@@ -239,7 +242,7 @@
     }
 
     function  GetAllLearners(){
-        $.getJSON("http://172.17.83.129:8085/api/students", function (data) {
+        $.getJSON("http://www.skolapi.co.za/api/students", function (data) {
             $('#ltable').empty();
             $.each(data, function (key, val) {
 
@@ -256,7 +259,7 @@
     }
 
      function GetAllApplicants() {
-        $.getJSON("http://172.17.83.129:8085/api/applicants", function (data) {
+        $.getJSON("http://www.skolapi.co.za/api/applicants", function (data) {
             $('#apptable').empty();
             $.each(data, function (key, val) {
 
@@ -276,7 +279,7 @@
       
             //Load the droplists dynamically
             //Title
-            var url = "http://172.17.83.129:8085/api/titles";
+            var url = "http://www.skolapi.co.za/api/titles";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.
@@ -285,7 +288,7 @@
             });
 
          //Position
-            var url = "http://172.17.83.129:8085/api/positions";
+            var url = "http://www.skolapi.co.za/api/positions";
             $.getJSON(url, function (data) {
                 $.each(data, function (index, value) {
                     // APPEND OR INSERT DATA TO SELECT ELEMENT.
